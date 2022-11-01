@@ -6,7 +6,9 @@ import { useRef } from 'react'
 import { useEffect } from 'react'
 
 const merge = function(s1, s2) {
-    return s1 + s2
+    return [...s1].map((e, i) =>
+    `${e}${s2[i] || ""}`)
+    .join('')
 }
 
 const UseRef = (props) => {
