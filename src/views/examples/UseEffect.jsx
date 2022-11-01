@@ -5,6 +5,7 @@ import PageTitle from '../../components/layout/PageTitle'
 import SectionTitle from '../../components/layout/SectionTitle'
 
 function calcFatorial(num) {
+   //Ex #01
     const n = parseInt(num)
     if(n < 0) return -1
     if(n === 0) return 1
@@ -17,6 +18,13 @@ const UseEffect = (props) => {
 
     useEffect(function() {
         setFatorial(calcFatorial(number))
+    }, [number])
+
+    //Ex #02
+    const [status, setStatus] = useState('Impar')
+
+    useEffect(function(){
+        setStatus(number % 2 === 0 ? 'Par' : 'Impar')
     }, [number])
 
     return (
@@ -37,7 +45,12 @@ const UseEffect = (props) => {
             </div>
 
             <SectionTitle title='Exercicio #02'/>
-            <div className="center"></div>
+            <div className="center">
+                <div>
+                    <span className="text">Status: </span>
+                    <span className="text red">{status}</span>
+                </div>
+            </div>
         </div>
     )
 }
